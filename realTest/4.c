@@ -51,9 +51,7 @@ int main(){
         
         reversetravel(filedata,&r1);
 
-        long int bytepos = (fhash2(r1.sourceid)-1)*sizeof(struct hashrow);
-
-        fseek(filehash,bytepos,SEEK_SET);
+        fseek(filehash,(fhash2(r1.sourceid)-1)*sizeof(struct hashrow),SEEK_SET);
 
         fread(&hr1,sizeof(struct hashrow),1,filehash);
 
