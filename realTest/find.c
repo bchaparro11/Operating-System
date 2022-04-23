@@ -8,8 +8,24 @@ struct row{
     mpost = My position
     npost = Next position
     */
+    //We must be careful with the padding 
+    //https://www.geeksforgeeks.org/is-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member/
     int mpos,npos,sourceid,dstid,hod;
     float mean;
+};
+
+struct row2{
+    /*
+    mpost = My position
+    npost = Next position
+    */
+    char x;
+    char y;
+    char z;
+    short int a;
+    //int mpos,npos,sourceid,dstid,hod;
+    
+    //float mean;
 };
 
 struct hashrow{
@@ -17,6 +33,7 @@ struct hashrow{
 };
 
 int main(){
+    //printf("El tamaño del struct row2 es: %ld\n",sizeof(struct row2));
     int mp,np;
     int s,d,h;
 
@@ -24,7 +41,6 @@ int main(){
     //912,667,15,1514.33
     //252,435,20,1403.8
     //907,1072,14,1801.23
-    //14,527,5
     s = 907;
     d =1072;
     h= 14;
@@ -63,7 +79,6 @@ int main(){
     while(np!=0){
         fseek(filedata,(np-1)*24,SEEK_SET);
         fread(&r1,sizeof(struct row),1,filedata);
-        //printf("El valor encontrado en el data.bin para npos es: %d\n",r1.npos);
         if(s==r1.sourceid && d==r1.dstid && h==r1.hod){
             printf("\nTiempo de viaje medio: %0.2f\n",r1.mean);
             printf("mpos: %d \nnpos: %d\n",r1.mpos,r1.npos);

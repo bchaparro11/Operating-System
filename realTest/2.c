@@ -25,19 +25,7 @@ int main(){
         fwrite(&hr1,sizeof(struct hashrow),1,freserve);
         //printf("Byte terminal: %ld\n",ftell(freserve));
     }
-    /*
-    for(int i=0;i<M;i++){
-        fread(&hr1,sizeof(struct hashrow),1,freserve);
-        printf("El valor que está en esa posición del hashtable es: %d\n",hr1.img); 
-    }
-    fseek(freserve,1101*4,SEEK_SET);
-    printf("<<<PUNTERO VALOR: %ld\n",ftell(freserve));
-    fread(&hr1,sizeof(struct hashrow),1,freserve);
-    printf("<<<PUNTERO VALOR: %ld\n",ftell(freserve));
-    printf("El valor que está en esa posición del hashtable es: %d\n",hr1.img);
-
     
-    */
     printf("Terminó la reserva de memoria en hashtable.bin\ny el puntero terminó en la posición: %ld\n",ftell(freserve));
     fclose(freserve);
     return 0;
