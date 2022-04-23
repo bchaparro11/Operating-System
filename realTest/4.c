@@ -15,7 +15,6 @@ struct hashrow{
 };
 
 
-int fhash(int sourceid);
 int fhash2(int sourceid);
 
 void reversetravel(FILE *filedata, struct row *r1);
@@ -61,10 +60,7 @@ int main(){
         fseek(filehash,-sizeof(struct hashrow),SEEK_CUR);
 
 
-        if (hr1.img==0){
-            //Para asegurar que siga siendo 0
-            r1.npos=0;
-        }else{
+        if(hr1.img!=0){
             //Si llega acá es porque hay una colisión entonces
             r1.npos=hr1.img;
             fwrite(&r1,sizeof(struct row),1,filedata);
