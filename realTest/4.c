@@ -51,6 +51,7 @@ int main(){
         
         reversetravel(filedata,&r1);
 
+        //El valor de la mitad es para hallar la posición correcta en hashtable.bin
         fseek(filehash,(fhash2(r1.sourceid)-1)*sizeof(struct hashrow),SEEK_SET);
 
         fread(&hr1,sizeof(struct hashrow),1,filehash);
