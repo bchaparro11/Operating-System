@@ -41,9 +41,9 @@ int main(){
     //912,667,15,1514.33
     //252,435,20,1403.8
     //907,1072,14,1801.23
-    s = 907;
-    d =1072;
-    h= 14;
+    s = 478;
+    d =627;
+    h= 0;
 
     struct row r1;
     struct hashrow hr1;
@@ -83,11 +83,13 @@ int main(){
             printf("\nTiempo de viaje medio: %0.2f\n",r1.mean);
             printf("mpos: %d \nnpos: %d\n",r1.mpos,r1.npos);
             printf("sourceid: %d \ndstid: %d \nhod: %d\n",r1.sourceid,r1.dstid,r1.hod);
+            fclose(filedata);
             exit(0);
         }
         np=r1.npos;
     }
     printf("NA\n");
+    fclose(filedata);
 
     return 0;
 }
