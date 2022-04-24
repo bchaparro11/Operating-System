@@ -114,6 +114,7 @@ int main(){
 				//return(1);
 	     	case 5:
 				system("clear");
+				fclose(fshare);
 				printf("\nHasta Luego!\n\n");
 				exit(0);
 				//return(1);	
@@ -124,6 +125,6 @@ int main(){
                 break;
 	 	}
     }
-    fclose(fshare);
+    //fclose(fshare);
     return 0;
 }
