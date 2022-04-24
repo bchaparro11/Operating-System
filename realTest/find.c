@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int fhash2(int sourceid);
+short int fhash2(short int sourceid);
 
 struct row{
     /*
@@ -10,22 +10,9 @@ struct row{
     */
     //We must be careful with the padding 
     //https://www.geeksforgeeks.org/is-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member/
-    int mpos,npos,sourceid,dstid,hod;
+    int mpos,npos;
+    short int sourceid,dstid,hod;
     float mean;
-};
-
-struct row2{
-    /*
-    mpost = My position
-    npost = Next position
-    */
-    char x;
-    char y;
-    char z;
-    short int a;
-    //int mpos,npos,sourceid,dstid,hod;
-    
-    //float mean;
 };
 
 struct hashrow{
@@ -35,7 +22,7 @@ struct hashrow{
 int main(){
     //printf("El tamaño del struct row2 es: %ld\n",sizeof(struct row2));
     int mp,np;
-    int s,d,h;
+    short int s,d,h;
 
     //478,627,0,1145.57
     //912,667,15,1514.33
@@ -94,7 +81,7 @@ int main(){
     return 0;
 }
 
-int fhash2(int sourceid){
+short int fhash2(short int sourceid){
   // Sin coliciones para menos de 1300 datos
   return ((((3*sourceid))%9803)%1300);
 }

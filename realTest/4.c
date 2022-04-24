@@ -6,7 +6,8 @@ struct row{
     mpost = My position
     npost = Next position
     */
-    int mpos,npos,sourceid,dstid,hod;
+    int mpos,npos;
+    short int sourceid,dstid,hod;
     float mean;
 };
 
@@ -15,7 +16,7 @@ struct hashrow{
 };
 
 
-int fhash2(int sourceid);
+short int fhash2(short int sourceid);
 
 void reversetravel(FILE *filedata, struct row *r1);
 
@@ -87,7 +88,7 @@ int main(){
 }
 
 
-int fhash2(int sourceid){
+short int fhash2(short int sourceid){
   /*
   Sin coliciones para menos de 1300 datos
     Función hecha por Sebastián

@@ -6,7 +6,8 @@ struct row{
     mpost = My position
     npost = Next position
     */
-    int mpos,npos,sourceid,dstid,hod;
+    int mpos,npos;
+    short int sourceid,dstid,hod;
     float mean;
 };
 
@@ -37,7 +38,7 @@ int main(){
     r1.npos = 0;
     for(int i=1;1;i++){
         //El %hd es para que reconozca el short int        
-        int end = fscanf(ftake,"%d,%d,%d,%f,%*s",&r1.sourceid,&r1.dstid,&r1.hod,&r1.mean);
+        int end = fscanf(ftake,"%hd,%hd,%hd,%f,%*s",&r1.sourceid,&r1.dstid,&r1.hod,&r1.mean);
 
         r1.mpos=i;
         if(end==EOF){

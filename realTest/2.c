@@ -3,6 +3,11 @@
 
 
 struct hashrow{
+    /*
+    Este no puede ser un short int porque este guarda las posiciones
+    y las posiciones llegan hasta casi seis millones
+    que es un número que no puede guardar un short int
+    */
     int img;
 };
 
