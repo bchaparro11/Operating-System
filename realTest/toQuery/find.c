@@ -1,27 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-short int fhash2(short int sourceid);
-
-struct row{
-    /*
-    mpost = My position
-    npost = Next position
-    */
-    //We must be careful with the padding 
-    //https://www.geeksforgeeks.org/is-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member/
-    int mpos,npos;
-    short int sourceid,dstid,hod;
-    float mean;
-};
-
-struct hashrow{
-    int img;
-};
-
-struct sharerow{
-    short int sourceid,dstid,hod;
-};
+#include"../header.h"
 
 int main(){
     FILE *fshare;
@@ -96,9 +75,4 @@ int main(){
     fclose(filedata);
 
     return 0;
-}
-
-short int fhash2(short int sourceid){
-  // Sin coliciones para menos de 1300 datos
-  return ((((3*sourceid))%9803)%1300);
 }

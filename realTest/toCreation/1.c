@@ -1,15 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-struct row{
-    /*
-    mpost = My position
-    npost = Next position
-    */
-    int mpos,npos;
-    short int sourceid,dstid,hod;
-    float mean;
-};
+#include"../header.h"
 
 int main(){
     //printf("El tamaño es: %ld\n: ",sizeof(struct row));
