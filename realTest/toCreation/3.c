@@ -1,22 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include"../header.h"
 
-struct row{
-    /*
-    mpost = My position
-    npost = Next position
-    */
-    int mpos,npos;
-    short int sourceid,dstid,hod;
-    float mean;
-};
-
-struct hashrow{
-    int img;
-};
-
-
-short int fhash2(short int sourceid);
 
 void reversetravel(FILE *filedata, struct row *r1);
 
@@ -88,13 +73,7 @@ int main(){
 }
 
 
-short int fhash2(short int sourceid){
-  /*
-  Sin coliciones para menos de 1300 datos
-    Función hecha por Sebastián
-  */
-  return ((((3*sourceid))%9803)%1300);
-}
+
 
 void reversetravel(FILE *filedata, struct row *r1){
     fseek(filedata,-sizeof(struct row),SEEK_CUR);

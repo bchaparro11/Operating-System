@@ -1,10 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
-
-struct sharerow{
-    short int sourceid,dstid,hod;
-};
+#include"../header.h"
 
 int main(){
     FILE *fshare;
