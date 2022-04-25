@@ -10,8 +10,10 @@ int main(){
     }
     struct sharerow sr1;
     fread(&sr1,sizeof(struct sharerow),1,fshare);
+    fclose(fshare);
     //printf("El tamaño del struct row2 es: %ld\n",sizeof(struct row2));
-    int mp,np;
+    //int m;
+    int np;
     //short int s,d,h;
 
     //478,627,0,1145.57
