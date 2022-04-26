@@ -4,9 +4,11 @@
 
 int main(){
     /*
-    Esto es para poder navegar en el archivo con bytes usando fseek, 
-    ya que no funciona con puro texto. Esto para luego poder usar 
-    la función hash y que el data.bin quede completo
+    Este script es para crear un archivo llamado hashtable.bin que guardará
+    struct hashrow, que está en ../header.h, con un valor dado por default
+    que es cero. Este archivo guardará la posición del primer struct row con
+    un sourceid específico. La posición que guarda es la específica del archivo
+    binario que se llama data.bin
     */
     FILE *freserve;
     freserve = fopen("../toQuery/hashtable.bin","w+b");
@@ -14,6 +16,7 @@ int main(){
         printf("Ocurrió un error con el opening del file hashtable.bin");
     }
 
+    //Se inicializa el struct hashrow para poder guardar en binario en hashtable.bin
     struct hashrow hr1;
     hr1.img = 0;
     

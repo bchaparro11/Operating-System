@@ -3,6 +3,13 @@
 #include"../header.h"
 
 int main(){
+    /*
+    Este script es para la consulta
+    */
+
+    /*Puntero FILE para leer de share.bin que el archivo que sirve para comunicar
+    interface.c y este código llamado find.c*/
+
     FILE *fshare;
     fshare = fopen("share.bin","r+b");
     if(fshare==NULL){
@@ -11,19 +18,22 @@ int main(){
     struct sharerow sr1;
     fread(&sr1,sizeof(struct sharerow),1,fshare);
     fclose(fshare);
-    //printf("El tamaño del struct row2 es: %ld\n",sizeof(struct row2));
-    //int m;
-    int np;
-    //short int s,d,h;
+    
+    //Memoria dinámica en este lugar, sólo aquí
+    int *np=malloc(sizeof(int));
 
-    //478,627,0,1145.57
-    //912,667,15,1514.33
-    //252,435,20,1403.8
-    //907,1072,14,1801.23
-    //printf("%hd\t %hd\t %d\t\n",sr1.sourceid,sr1.dstid,sr1.hod);
-    //s = sr1.sourceid;
-    //d =sr1.dstid;
-    //h= sr1.hod;
+    /*
+    Tests
+    478,627,0,1145.57
+    912,667,15,1514.33
+    252,435,20,1403.8
+    907,1072,14,1801.23
+
+    s = sr1.sourceid;
+    d =sr1.dstid;
+    h= sr1.hod;   
+    */
+ 
 
     if(sr1.sourceid == 0 || sr1.dstid == 0){
         printf("N/A\n");
@@ -47,22 +57,16 @@ int main(){
         exit(0);
     }
     
-    /*
-    Hay que mirar aquí por qué no sirve con (s-1)*4 porque así debería ser!
-    Quizá, por esto es que uno funciona el hash
-    */
-    
+
     fseek(filehash,(fhash2(sr1.sourceid)-1)*sizeof(struct hashrow),SEEK_SET);
     fread(&hr1,sizeof(struct hashrow),1,filehash);
     fclose(filehash);
 
     //El valor para buscar ahora en data.bin
-    np = hr1.img;
+    *np = hr1.img;
 
-    //printf("El valor encontrado en el hashtable.bin es: %d\n",np);
-
-    while(np!=0){
-        fseek(filedata,(np-1)*sizeof(struct row),SEEK_SET);
+    while(*np!=0){
+        fseek(filedata,(*np-1)*sizeof(struct row),SEEK_SET);
         fread(&r1,sizeof(struct row),1,filedata);
         if(sr1.sourceid==r1.sourceid && sr1.dstid==r1.dstid && sr1.hod==r1.hod){
             printf("\nTiempo de viaje medio: %0.2f\n\n",r1.mean);
@@ -71,10 +75,11 @@ int main(){
             fclose(filedata);
             exit(0);
         }
-        np=r1.npos;
+        *np=r1.npos;
     }
     printf("NA\n");
     fclose(filedata);
+    free(np);
 
     return 0;
 }

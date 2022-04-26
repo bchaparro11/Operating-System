@@ -4,29 +4,18 @@
 #include"../header.h"
 
 int main(){
+	/*
+	Script para la interface
+	*/
+
     FILE *fshare;
     fshare = fopen("share.bin","w+b");
     if(fshare==NULL){
         printf("Ocurrió un problema con el opening de share.bin!\n");
     }
     struct sharerow sr1={0,0,0};
-    //fwrite(&sr1,sizeof(struct sharerow),1,fshare);
 
-    /*
-    int opcion;
-    int bucle = 1;
-   	int sourceid = 0;
-   	int dstid = 0;
-   	int hod = 0;
-    */
     short int opcion;
-    //short int bucle = 1;
-	//float avt;
-    //float mean;
-
-	//Para medir tiempo
-	//struct timeval ti, tf;
-	//double tiempo;  
 
     
     while(1) {
@@ -52,9 +41,8 @@ int main(){
                     sleep(3);
                     break;    
                 }
-	  			//printf("NO ENTRÓ");
 				break;
-	  			//return(1);
+
 	     	case 2:
 	 			system("clear");
 	  			printf("\nIngrese ID del destino: ");
@@ -65,9 +53,8 @@ int main(){
                     sleep(3);  
                     break;      
                 }
-	  			//bucle= 1;
 				break;
-	  			//return(1);
+
 	     	case 3:
 	  			system("clear");
 	  			printf("\nIngrese hora del día: ");
@@ -78,15 +65,8 @@ int main(){
                     sleep(3);
                     break;        
                 }
-                /*
-                while(hod < 0 || hod > 23){
-	  			        printf("Ingrese un valor valido\n");
-	  			        scanf("%d", &hod);
-	  			}
-                */		
-	  			//bucle= 1;
+
 	  			break;
-	  			//return(1);
 	     	case 4:
 				system("clear");
                 fwrite(&sr1,sizeof(struct sharerow),1,fshare);
@@ -94,21 +74,7 @@ int main(){
                 system("gcc find.c -o find");
                 char *args[]={"./find",NULL};
                 execv(args[0],args);
-                /*
-                gettimeofday(&ti, NULL);				// Instante inicial
-				avt = buscar(sourceID, destID, hod);
-				gettimeofday(&tf, NULL);   				// Instante final
-				tiempo= (tf.tv_sec - ti.tv_sec)*1000 + (tf.tv_usec - ti.tv_usec)/1000.0;
-				printf("La busqueda Ha tardado: %g milisegundos\n", tiempo);
-				if(avt == 0.0){
-					printf("Los datos para este viaje no son Validos");
-				}else{
-					printf("El tiempo de viaje medio para estos datos son: %.2f\n ", avt);
-				}
-                */
-				//bucle= 1;
-				//break;
-				//return(1);
+
 	     	case 5:
 				system("clear");
 				fclose(fshare);
@@ -122,6 +88,5 @@ int main(){
                 break;
 	 	}
     }
-    //fclose(fshare);
     return 0;
 }
