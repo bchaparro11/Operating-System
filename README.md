@@ -45,12 +45,12 @@ Luego de descargar todo el código:
 
 1. Para comprobar el uso de memoria RAM menor a 1 MB seguir las indicaciones del inciso 3.2 de "Proceso para ejecución de todo el programa" ejecutando sólo find.c después de ejecutar de manera completa las indicaciones que están en el inciso 3.0 de la misma sección (sección anterior) porque de esta manera queda guardado correctamente el sourceid, dsti y hod de manera binaria en share.bin que después usa find.c para ejecutar su proceso correctamente.
 
-No hacer el cálculo con el programa interface.c porque este consume memoria adicional que está asociada a la interface y la condición de consumir menos de 1MB es asociada sólo a la busqueda.
+    No hacer el cálculo con el programa interface.c porque este consume memoria adicional que está asociada a la interface y la condición de consumir menos de 1MB es asociada sólo a la busqueda.
 
 2. Para comprobar la rapidez de la busqueda primero se debe de ejecutar de manera completa las indicaciones que están en el inciso 3.0 de "Proceso para ejecución de todo el programa", porque de esta manera queda guardado correctamente el sourceid, dsti y hod de manera binaria en share.bin que después usa find.c para ejecutar su proceso correctamente. Por último ejecutar el comando:
 
     "time ./find"
 
-O usar:
+    O usar:
 
     "time make scriptfind"
