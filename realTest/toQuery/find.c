@@ -58,12 +58,14 @@ int main(){
     }
     
 
-    fseek(filehash,(fhash2(sr1.sourceid)-1)*sizeof(struct hashrow),SEEK_SET);
+    fseek(filehash,(sr1.sourceid-1)*sizeof(struct hashrow),SEEK_SET);
     fread(&hr1,sizeof(struct hashrow),1,filehash);
     fclose(filehash);
 
     //El valor para buscar ahora en data.bin
     *np = hr1.img;
+    
+    short int forWait;
 
     while(*np!=0){
         fseek(filedata,(*np-1)*sizeof(struct row),SEEK_SET);
@@ -73,6 +75,9 @@ int main(){
             printf("mpos: %d \nnpos: %d\n",r1.mpos,r1.npos);
             printf("sourceid: %d \ndstid: %d \nhod: %d\n",r1.sourceid,r1.dstid,r1.hod);
             fclose(filedata);
+            free(np);
+            //printf("\nEsperando el ingreso de cualquier número para terminar el proces: ");
+            //scanf("%hd",&forWait);
             exit(0);
         }
         *np=r1.npos;
@@ -80,6 +85,7 @@ int main(){
     printf("NA\n");
     fclose(filedata);
     free(np);
-
+    //printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
+    //scanf("%hd",&forWait);
     return 0;
 }

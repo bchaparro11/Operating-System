@@ -19,14 +19,6 @@ struct hashrow{
     int img;
 };
 
-short int fhash2(short int sourceid){
-  /*
-  Sin coliciones para menos de 1300 datos
-    Función hecha por Sebastián
-  */
-  return ((((3*sourceid))%9803)%1300);
-}
-
 struct sharerow{
     short int sourceid,dstid,hod;
 };
