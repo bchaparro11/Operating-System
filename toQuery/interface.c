@@ -73,7 +73,7 @@ int main(){
                 fclose(fshare);
                 system("gcc find.c -o find");
                 char *args[]={"./find",NULL};
-                execv(args[0],args);
+                execv(args[0],args); //No aparentado
 
 	     	case 5:
 				system("clear");

@@ -16,6 +16,7 @@ int main(){
     para el miembro npos de cada struct row. Esto permite generar la pseudo lista enlazada
     que el profesor asignó. Se empieza desde el último registro o struct row almacenado
     hasta el primero
+    - Este script dura menos de 40 seg en ejecutarse
     */
 
     FILE *filehash;

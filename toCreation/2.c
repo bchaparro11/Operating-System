@@ -9,6 +9,7 @@ int main(){
     que es cero. Este archivo guardará la posición del primer struct row con
     un sourceid específico. La posición que guarda es la específica del archivo
     binario que se llama data.bin
+    - Este script se ejecuta al instante
     */
     FILE *freserve;
     freserve = fopen("../toQuery/hashtable.bin","w+b");

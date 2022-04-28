@@ -21,20 +21,8 @@ int main(){
     
     //Memoria dinámica en este lugar, sólo aquí
     int *np=malloc(sizeof(int));
-
-    /*
-    Tests
-    478,627,0,1145.57
-    912,667,15,1514.33
-    252,435,20,1403.8
-    907,1072,14,1801.23
-
-    s = sr1.sourceid;
-    d =sr1.dstid;
-    h= sr1.hod;   
-    */
  
-
+    //Si no se escriben datos en interface.bin no es necesario seguir con el código más adelante
     if(sr1.sourceid == 0 || sr1.dstid == 0){
         printf("N/A\n");
         exit(0);
@@ -76,8 +64,9 @@ int main(){
             printf("sourceid: %d \ndstid: %d \nhod: %d\n",r1.sourceid,r1.dstid,r1.hod);
             fclose(filedata);
             free(np);
-            printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
-            scanf("%hd",&forWait);
+            //Para la prueba de tiempo no debe estar activo las siguientes dos líneas
+            //printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
+            //scanf("%hd",&forWait);
             exit(0);
         }
         *np=r1.npos;
@@ -85,7 +74,8 @@ int main(){
     printf("NA\n");
     fclose(filedata);
     free(np);
-    printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
-    scanf("%hd",&forWait);
+    //Para la prueba de tiempo no debe estar activo las siguientes dos líneas
+    //printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
+    //scanf("%hd",&forWait);
     return 0;
 }

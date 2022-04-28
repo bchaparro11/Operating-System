@@ -6,6 +6,7 @@ int main(){
     /*
     Al .csv original se le borró el título y un salto de línea adicional que tenía
     después del último registro.
+    - Este script dura menos de 10 seg en ejecutarse
     */
 
     /*
