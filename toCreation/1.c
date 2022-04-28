@@ -20,10 +20,13 @@ int main(){
     }
 
     /*
-    El siguiente puntero se va a utilizar para guardar cada row sacado
-    del .csv en un archivo binario llamado data.bin. Los datos de cada
-    row se almacenan en un struct y se guardan de manera binaria luego 
-    en data.bin
+    El siguiente puntero se va a utilizar para guardar SÓLO LOS PRIMEROS CUATRO DATOS DE
+    cada row sacado del .csv, ESTO PERMITE OPTIMIZAR LA MEMORIA EN DISCO, en un archivo 
+    binario llamado data.bin. Los datos de cada row se almacenan en un struct y se 
+    guardan de manera binaria luego en data.bin. TODOS
+    LOS STRUCTS UTILIZADOS EN TODOS LOS .c, SE USAN CON LOS TIPOS DE DATOS
+    MÁS PRECISOS COMO short int PARA OPTIMIZAR LA MEMORIA EN DISCO. VER LOS STRUCTS EN
+    header.h 
     */
     FILE *fsave;
     fsave = fopen("../toQuery/data.bin","w+b");
