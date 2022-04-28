@@ -7,8 +7,8 @@ int main(){
     Este script es para la consulta
     */
 
-    /*Puntero FILE para leer de share.bin que el archivo que sirve para comunicar
-    interface.c y este código llamado find.c*/
+    /*Puntero FILE para leer de share.bin que es el archivo que sirve para comunicar
+    interface.c y este código llamado find.c (sharedMemory)*/
 
     FILE *fshare;
     fshare = fopen("share.bin","r+b");
@@ -19,7 +19,9 @@ int main(){
     fread(&sr1,sizeof(struct sharerow),1,fshare);
     fclose(fshare);
     
-    //Memoria dinámica en este lugar, sólo aquí
+    /*
+    Memoria dinámica en este lugar, sólo aquí usada para cumplir la condición se usar malloc
+    */
     int *np=malloc(sizeof(int));
  
     //Si no se escriben datos en interface.bin no es necesario seguir con el código más adelante
