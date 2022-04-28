@@ -76,8 +76,8 @@ int main(){
             printf("sourceid: %d \ndstid: %d \nhod: %d\n",r1.sourceid,r1.dstid,r1.hod);
             fclose(filedata);
             free(np);
-            //printf("\nEsperando el ingreso de cualquier número para terminar el proces: ");
-            //scanf("%hd",&forWait);
+            printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
+            scanf("%hd",&forWait);
             exit(0);
         }
         *np=r1.npos;
@@ -85,7 +85,7 @@ int main(){
     printf("NA\n");
     fclose(filedata);
     free(np);
-    //printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
-    //scanf("%hd",&forWait);
+    printf("\nEsperando el ingreso de cualquier número para terminar el proceso: ");
+    scanf("%hd",&forWait);
     return 0;
 }

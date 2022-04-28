@@ -4,6 +4,6 @@ scriptfind:
 scriptinterface:
 	gcc interface.c -o interface
 	./interface
-scriptt:
-	gcc t.c -o t
-	./t
+scriptmemoryTest:
+	gcc memoryTest.c -o memoryTest
+	./memoryTest
